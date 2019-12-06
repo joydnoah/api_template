@@ -1,5 +1,5 @@
 from flask_restful import Resource
-from flask import jsonify
+from controllers.template_database_controller import TemplateDatabaserController
 
 class CheckResource(Resource):
     """
@@ -10,4 +10,4 @@ class CheckResource(Resource):
         Return code to identify status of the api
         :return response: JSON. Ie, {}
         """
-        return "It's working"
+        return TemplateDatabaserController.check_template_database()

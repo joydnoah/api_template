@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 from flask import Flask, jsonify
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import create_engine
 
 # Local packages
 from config import TEMPLATE_DATABASE_URI
@@ -28,3 +29,5 @@ def exception_error(e):
 db = SQLAlchemy(app)
 db.app = app
 db.init_app(app)
+
+template_database_connection = create_engine(TEMPLATE_DATABASE_URI, echo=False)
